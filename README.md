@@ -1,1 +1,0 @@
-# ArtelClimat.by
