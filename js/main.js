@@ -18,6 +18,82 @@ $(document).ready(function(){
         e.stopPropagation();
     });
 
+
+    if($('.main_slider .slider_item').length >1){
+        $('.main_slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots:true,
+            fade:true,
+            infinite:false,
+            //speed: 1000,
+            //autoplay: true,
+            //autoplaySpeed: 2000,
+        });
+    }
+
+
+
+    if($(".product_slider .slider_item").length >4){
+        $('.product_slider').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true,
+            dots:false,
+            //infinite:false,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow:2,
+                    }
+                },
+
+                {
+                    breakpoint: 575,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+    }
+
+
+    if($(".portfolio_slider .slider_item").length >3){
+        $('.portfolio_slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: true,
+            dots:false,
+            //infinite:false,
+            responsive: [
+
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow:2,
+                    }
+                },
+
+                {
+                    breakpoint: 575,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+    }
+
+
 /*
         $('.hamburger').click(function () {
             $('.main_menu').toggleClass('open');
