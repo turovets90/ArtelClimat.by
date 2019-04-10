@@ -1,6 +1,21 @@
 $(document).ready(function(){
 
 
+    if (document.documentMode || /MSIE/.test(navigator.userAgent)) {
+        $('html').addClass('ie');
+    }else{
+        $('html').addClass('notIe');
+    }
+
+    if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+        $('html').addClass('Edge');
+    }
+
+
+
+
+
+
     $(window).resize(function(){
         var header = $('header').outerHeight();
         $(window).scroll(function(){
@@ -196,6 +211,10 @@ $(document).ready(function(){
         asNavFor: '.product_main_slider',
         focusOnSelect: true
     });
+
+
+
+
 
 
     
