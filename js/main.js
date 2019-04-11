@@ -213,7 +213,10 @@ $(document).ready(function(){
     });
 
 
-
+    $('.main_menu .arrow').click(function(){
+        $(this).toggleClass('rotate');
+        $(this).next().slideToggle();
+    });
 
 
 
