@@ -560,6 +560,9 @@ header{
         font-size: 20px;
         line-height: normal;
         color: #F78203;
+        &:hover, &:focus{
+          text-decoration: underline;
+        }
         @media (max-width:767px){
           font-size: 16px;
         }
@@ -569,9 +572,7 @@ header{
         @media (max-width:375px){
           font-size: 13px;
         }
-        &:hover, &:focus{
-          text-decoration: none;
-        }
+
       }
     }
   }
@@ -686,11 +687,12 @@ header{
         width: 100%;
         text-align: left;
         padding-left: 0;
+        padding-right: 0;
         margin-bottom: 5px;
       }
 
       &:hover{
-        .sub_menu{
+        >.sub_menu{
           @media (min-width:992px){
             display: block;
           }
@@ -760,9 +762,25 @@ header{
         }
         @media (max-width:991px){
           padding-left: 15px;
+          padding-top: 10px;
+        }
+
+        .sub_menu{
+          @media (min-width:992px){
+            left: 100%;
+            top: 0;
+          }
         }
 
         li{
+          position: relative;
+          &:hover{
+            >.sub_menu{
+              @media (min-width:992px){
+                display: block;
+              }
+            }
+          }
           a{
             display: inline-block;
             color: #fff;
@@ -1715,14 +1733,16 @@ main.page{
   color: #F7F4F4;
   padding-left: 23px;
   margin-bottom: 10px;
+  .transition(@transition_default);
   @media (max-width:1200px){
     height: 60px;
     font-size: 16px;
     padding-left: 15px;
   }
   *{
-    .transition(@transition_default);
+    //.transition(@transition_default);
   }
+
   &:hover, &:focus{
     text-decoration: none;
     color: #fff;
@@ -3628,3 +3648,36 @@ main.page{
     display: none;
   }
 }
+
+
+.gallery_item{
+  a[data-fancybox]{
+    position: relative;
+    &:hover{
+      &:after, &:before{
+        opacity: 1;
+      }
+    }
+    &:before{
+      .b_a();
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 2;
+    }
+    &:after{
+      .b_a();
+      width: 40px;
+      height: 40px;
+      .m_a();
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='40' height='40' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M20 0v40M40 20H0' stroke='%23fff' stroke-width='2'/%3e%3c/svg%3e");
+      .transition(@transition_default);
+      opacity: 0;
+      z-index: 3;
+    }
+  }
+}
+
