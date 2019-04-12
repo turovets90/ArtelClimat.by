@@ -3681,3 +3681,59 @@ main.page{
   }
 }
 
+.catalog_list_item{
+  .add_to_compare{
+    @media (min-width:992px){
+      text-align: right;
+    }
+    @media (max-width:991px){
+      margin-top: 10px;
+    }
+  }
+}
+
+
+.add_to_compare{
+
+  input{
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    &:checked{
+      +label{
+        &:after{
+          opacity: 1;
+        }
+      }
+    }
+    +label{
+      color: #fff;
+      position: relative;
+      padding-left: 25px;
+      cursor: pointer;
+      &:before{
+        .b_a();
+        width: 15px;
+        height: 15px;
+        border:1px solid #fff;
+        .border-radius(3px);
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      &:after{
+          .b_a();
+        width: 9px;
+        height: 9px;
+        background: #fff;
+        .border-radius(3px);
+        left: 3px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        opacity: 0;
+        }
+    }
+  }
+}
